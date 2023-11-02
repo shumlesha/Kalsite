@@ -2,8 +2,8 @@ from docx import Document
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 
-doc = Document("мудрый баобаб.docx")
-
+#doc = Document("мудрый баобаб.docx")
+doc = Document("Collocopy.docx")
 
 def read():
     paragraphs = [p.text for p in doc.paragraphs if p.text.strip() != ""]
@@ -15,8 +15,7 @@ def read():
 
     for p in doc.paragraphs:
 
-        if p.runs and (p.runs[0].bold and p.runs[0].underline or "Какие ограничения целостности" in p.text):
-
+        if p.style.name.startswith('Heading'):
             if current_answer:
 
                 answers.append("\n".join(current_answer))
@@ -24,14 +23,12 @@ def read():
             questions.append(p.text)
         else:
 
-            if p.runs[0].font.name != "Arial":
-                current_answer.append(p.text)
+            current_answer.append(p.text)
 
-    answers.pop(0)
+
 
     if current_answer:
         answers.append("\n".join(current_answer))
-
 
 
     return dict(zip(questions, answers))
