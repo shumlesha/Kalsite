@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <!-- Окно поиска -->
+    <div class="search-window">
+        <input type="text" id="searchInput" oninput="searchQuery()" placeholder="Введите вопрос...">
+        <div class="search-results" id="searchResults">
+            <!-- Результаты поиска будут здесь -->
+        </div>
+    </div>
+
+    <div class="chat-window">
+        <div class="chat-header">
+            <!-- Тут будет чат -->
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Введите сообщение...">
+            <button id="sendButton" onclick="sendChatMessage()">Отправить</button>
+            <button title="Удаление будет только у вас" id="cleanButton" onclick="clearChatHistory()">Очистить чат</button>
+        </div>
+    </div>
+
+</div>
+<div class="users-count">
+    <i class="fas fa-user user-icon"></i> Пользователей:&nbsp;<span id="usersCount">0</span>
+</div>
+<div id="usernameModal" class="modal">
+    <div class="modal-content">
+        <h2>Введите ваш никнейм</h2>
+        <input type="text" id="usernameInput" placeholder="Никнейм">
+        <button id="userbutton" onclick="saveUsername()">Сохранить</button>
+    </div>
+</div>
+
+{% endblock %}

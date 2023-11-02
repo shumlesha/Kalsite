@@ -1,0 +1,216 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+}
+
+.search-window {
+    max-height: 650px;
+    width: 45%;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    align-self: flex-start;
+}
+
+.search-results{
+    font-size: 16px;
+}
+
+#searchInput {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.question-container {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+
+}
+
+.question-container strong {
+    margin-right: 10px;
+}
+
+.question-container button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.question-container button:hover {
+    background-color: #0056b3;
+}
+
+.question-container button:active {
+    background-color: #003f7f;
+}
+
+.question-container:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s;
+}
+
+
+
+.chat-window {
+    width: 45%;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2x 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    align-self: flex-start;
+    margin-right: 1%;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    max-height: 300px;
+    min-height: 300px;
+    overflow-y: auto;
+    margin: 10px 0;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.chat-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-top: 1x solid #e0e0e0;
+}
+
+#messageInput {
+    width: 80%;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    outline: none;
+    transition: border 0.3s ease;
+    margin-right: 10px;
+}
+
+#messageInput:focus {
+    border-color: #e8a9a9;  /* Этот цвет можно заменить на любой другой, который вам нравится */
+}
+
+#sendButton {
+    padding: 9px 16px;
+    background-color: #d6c9c9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sendButton:hover {
+    background-color: #b3abab;
+}
+
+#sendButton:active {
+    background-color: #a19c9c;
+}
+
+#cleanButton {
+    background-color: red;
+    color: white;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#cleanButton:hover {
+    background-color: #eb1010;
+}
+
+#cleanButton:active{
+    background-color: #b81616;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    backgroud-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #f4f4f4;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.modal-content h2 {
+    margin: 0;
+    padding-bottom: 15px;
+    font-size: 24px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#usernameInput {
+    width: 80%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#userbutton {
+    display: block;
+    width: 100%;
+
+}
+
+.admin-tag {
+    color: red;
+}
+
+.users-count {
+    position: fixed;
+    right: 25px;
+    bottom: 10px;
+    padding: 5px 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.user-icon {
+    margin-right: 5px;
+}
+
