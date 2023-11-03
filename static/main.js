@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     else {
         username = localStorage.getItem('username');
+        registerNickname(username)
+
     }
     fetch('/get-user-count')
         .then(response => response.json())
@@ -125,8 +127,8 @@ function clearChatHistory() {
 function sendMessageToChat(message){
     //console.log('sendMessageToChat called with:', message);
     let username = localStorage.getItem('username');
-    let adminTag = (username === "shumlesha") ? "<span class='admin-tag'>[ADMINISTRATOR]</span>" : "";
-    let fullMessage = `[${getCurrentTime()}] [<strong>${adminTag} Пользователь "${username}" отправил</strong>]:<br>${message}`;
+    let adminTag = (username === "shumlesha" || username === "dead_fairy") ? "<span class='admin-tag'>[ADMINISTRATOR]</span> " : "";
+    let fullMessage = `[${getCurrentTime()}] [<strong>${adminTag}Пользователь "${username}" отправил</strong>]:<br>${message}`;
     socket.emit('send_message', {'message': fullMessage});
 }
 
