@@ -30,6 +30,7 @@ def read():
     if current_answer:
         answers.append("\n".join(current_answer))
 
+    
 
     return dict(zip(questions, answers))
 
