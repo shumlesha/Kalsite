@@ -222,6 +222,8 @@
 #toggleGlossary {
   width: 8%;
   margin-left: 10px;
+  font-weight: bold;
+  font-size: 19px;
 }
 
 .glossary-panel {
