@@ -26,6 +26,17 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     chatWindow.scrollTop = chatWindow.scrollHeight;
 
+    var glossaryButton = document.getElementById('toggleGlossary');
+    var glossaryPanel = document.getElementById('glossaryPanel');
+
+    glossaryButton.addEventListener('click', function() {
+      if (glossaryPanel.style.display === 'none' || glossaryPanel.style.display === '') {
+        glossaryPanel.style.display = 'block';
+      } else {
+        glossaryPanel.style.display = 'none';
+      }
+    });
+
     document.addEventListener('contextmenu', function(e) {
 
     e.preventDefault();
@@ -47,6 +58,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
 });
 
+function handleClick(event) {
+  var clickedElement = event.target;
+
+  if (!clickedElement.closest('#glossaryPanel') && !clickedElement.closest('#toggleGlossary')) {
+    var glossary = document.getElementById('glossaryPanel');
+    glossary.style.display = 'none';
+  }
+}
+document.addEventListener('click', handleClick);
 
 document.getElementById('messageInput').addEventListener('keydown', function(event) {
     if (event.key === 'Enter' || event.keyCode === 13) {

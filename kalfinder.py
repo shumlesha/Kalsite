@@ -30,7 +30,10 @@ def read():
     if current_answer:
         answers.append("\n".join(current_answer))
 
-    
+    """print(len(questions), len(answers))
+
+    for i, el in enumerate(questions):
+        print(f"{el} {answers[i]}")"""
 
     return dict(zip(questions, answers))
 
