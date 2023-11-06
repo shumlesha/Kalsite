@@ -203,7 +203,7 @@ function displayResults(data){
         let resultDiv = document.createElement("div");
         resultDiv.className = "question-container";
 
-        let messageContent = `Вопрос: ${question[0]}<br>Ответ: ${question[1].replace(/\n/g, '<br>').replace(/'/g, "&#39;").replace(/"/g, "&quot;")}`;
+        let messageContent = `<strong>Вопрос:</strong> ${question[0]}<br><strong>Ответ</strong>: ${question[1].replace(/\n/g, '<br>').replace(/'/g, "&#39;").replace(/"/g, "&quot;")}`;
         let escapedQuestion = encodeURIComponent(messageContent);
 
 
