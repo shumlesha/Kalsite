@@ -8,8 +8,21 @@
 
 </head>
 <body>
+    <div class="menu-icon">
+        <i class="fas fa-bars"></i> <!-- Используйте FontAwesome для иконки или любую другую иконку -->
+    </div>
+
+    <!-- Панель меню -->
+    <div class="menu-panel">
+        <a href="/">Главная</a>
+        <a href="/contacts">Авторы</a>
+        <!-- Добавьте здесь другие ссылки или элементы меню -->
+    </div>
     {% block content %}{% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
-    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='main.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='menu.js') }}"></script>
+
+    {% block scripts %}{% endblock %}
 </body>
 </html>

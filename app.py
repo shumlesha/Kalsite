@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///nicknames.db'
 db = SQLAlchemy(app)
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode='eventlet')
 
 
 class Nickname(db.Model):
@@ -18,6 +18,10 @@ class Nickname(db.Model):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/contacts')
+def contacts():
+    return render_template('authors.html')
 
 
 @app.route('/search', methods=['POST'])
@@ -71,3 +75,4 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     socketio.run(app, host='0.0.0.0',allow_unsafe_werkzeug=True, port=8081, debug=True)
+
