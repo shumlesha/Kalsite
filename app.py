@@ -34,7 +34,7 @@ async def search():
 
 
 @app.route('/check-nickname', methods=['POST'])
-def check_nickname():
+async def check_nickname():
     nickname = request.json['nickname']
     exists = Nickname.query.filter_by(name=nickname).first()
     return jsonify(exists=bool(exists)), 200
@@ -57,7 +57,7 @@ async def register_nickname():
 
 
 @app.route('/get-user-count', methods=['GET'])
-async def get_user_count():
+def get_user_count():
     user_count = Nickname.query.count()
     return jsonify(user_count=user_count)
 
