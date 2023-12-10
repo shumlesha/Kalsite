@@ -243,4 +243,86 @@
 }
 
 
+/* Стили для иконки меню */
+.menu-icon {
+    /* Остальные стили остаются прежними */
+    opacity: 0; /* Скрыть иконку по умолчанию */
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
 
+.menu-icon.visible {
+    opacity: 1; /* Показать при наведении */
+}
+
+.menu-icon:hover {
+    opacity: 1;
+}
+
+/* Стили для выдвижной панели */
+.menu-panel {
+    position: fixed;
+    left: -250px; /* Скрыта изначально */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #f1f1f1;
+    box-shadow: 2px 0px 5px rgba(0,0,0,0.2);
+    transition: left 0.3s;
+    overflow-y: auto; /* Для прокрутки если содержимое большое */
+}
+
+.menu-panel.open {
+    left: 0; /* Открытие панели */
+}
+
+/* Стили для элементов внутри панели */
+.menu-panel a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-panel a:hover {
+    background-color: #eee;
+}
+
+.authors-container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+
+}
+
+.author {
+    margin-bottom: 15px;
+}
+
+.author h2 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.author p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.author a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.author a:hover {
+    text-decoration: underline;
+}
+.author h2 .role {
+    font-size: 19px; /* Уменьшить размер шрифта, если необходимо */
+    font-weight: normal; /* Обычное начертание шрифта */
+    color: #666; /* Серый цвет для дополнительного текста */
+}
