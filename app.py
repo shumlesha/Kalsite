@@ -64,7 +64,7 @@ async def get_user_count():
 
 # тут обработаем сообщение
 @socketio.on('send_message')
-async def handle_message(data):
+def handle_message(data):
     #print(data)
     emit('message', data, broadcast=True)
 
