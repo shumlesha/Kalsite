@@ -16,11 +16,11 @@ class Nickname(db.Model):
 
 
 @app.route('/')
-async def index():
+def index():
     return render_template('index.html')
 
 @app.route('/contacts')
-async def contacts():
+def contacts():
     return render_template('authors.html')
 
 
@@ -34,13 +34,13 @@ async def search():
 
 
 @app.route('/check-nickname', methods=['POST'])
-async def check_nickname():
+def check_nickname():
     nickname = request.json['nickname']
     exists = Nickname.query.filter_by(name=nickname).first()
     return jsonify(exists=bool(exists)), 200
 
 @app.route('/register-nickname', methods=['POST'])
-async def register_nickname():
+def register_nickname():
     nickname = request.json['nickname']
     exists = Nickname.query.filter_by(name=nickname).first()
     if exists:
@@ -57,7 +57,7 @@ async def register_nickname():
 
 
 @app.route('/get-user-count', methods=['GET'])
-async def get_user_count():
+def get_user_count():
     user_count = Nickname.query.count()
     return jsonify(user_count=user_count)
 
