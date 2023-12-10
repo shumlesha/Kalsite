@@ -57,7 +57,7 @@ async def register_nickname():
 
 
 @app.route('/get-user-count', methods=['GET'])
-def get_user_count():
+async def get_user_count():
     user_count = Nickname.query.count()
     return jsonify(user_count=user_count)
 
@@ -74,6 +74,7 @@ def handle_message(data):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    loop = asyncio.get_event_loop()
+    #loop = asyncio.get_event_loop()
 
-    loop.run_until_complete(socketio.run(app, host='0.0.0.0',allow_unsafe_werkzeug=True, port=8081, debug=True))
+    #loop.run_until_complete(socketio.run(app, host='0.0.0.0',allow_unsafe_werkzeug=True, port=8081, debug=True))
+    socketio.run(app, host='0.0.0.0',allow_unsafe_werkzeug=True, port=8081, debug=True)
