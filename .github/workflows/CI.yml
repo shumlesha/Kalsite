@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   deploy-production:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
   
