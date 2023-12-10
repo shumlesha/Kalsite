@@ -74,6 +74,6 @@ def handle_message(data):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    #loop = asyncio.get_event_loop()
+    loop = asyncio.get_event_loop()
 
-    socketio.run(app, host='0.0.0.0',allow_unsafe_werkzeug=True, port=8081, debug=True)
+    loop.run_until_complete(socketio.run(app, host='0.0.0.0',allow_unsafe_werkzeug=True, port=8081, debug=True))
