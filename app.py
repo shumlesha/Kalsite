@@ -7,7 +7,7 @@ import asyncio
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///nicknames.db'
 db = SQLAlchemy(app)
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode='eventlet')
 
 
 class Nickname(db.Model):
@@ -74,6 +74,6 @@ async def handle_message(data):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
+    #loop = asyncio.get_event_loop()
 
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(socketio.run(app, host='0.0.0.0',allow_unsafe_werkzeug=True, port=8081, debug=True))
+    socketio.run(app, host='0.0.0.0',allow_unsafe_werkzeug=True, port=8081, debug=True)
