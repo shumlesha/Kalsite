@@ -16,16 +16,16 @@ class Nickname(db.Model):
 
 
 @app.route('/')
-def index():
+async def index():
     return render_template('index.html')
 
 @app.route('/contacts')
-def contacts():
+async def contacts():
     return render_template('authors.html')
 
 
 @app.route('/search', methods=['POST'])
-def search():
+async def search():
     query = request.form.get('query', "").lower()
     searchresult = fastananlyzer(query) if query.strip() else ""
     #results = {q: a for q, a in questions_answers.items() if query in q.lower() and query}
@@ -34,13 +34,13 @@ def search():
 
 
 @app.route('/check-nickname', methods=['POST'])
-def check_nickname():
+async def check_nickname():
     nickname = request.json['nickname']
     exists = Nickname.query.filter_by(name=nickname).first()
     return jsonify(exists=bool(exists)), 200
 
 @app.route('/register-nickname', methods=['POST'])
-def register_nickname():
+async def register_nickname():
     nickname = request.json['nickname']
     exists = Nickname.query.filter_by(name=nickname).first()
     if exists:
@@ -57,14 +57,14 @@ def register_nickname():
 
 
 @app.route('/get-user-count', methods=['GET'])
-def get_user_count():
+async def get_user_count():
     user_count = Nickname.query.count()
     return jsonify(user_count=user_count)
 
 
 # тут обработаем сообщение
 @socketio.on('send_message')
-def handle_message(data):
+async def handle_message(data):
     #print(data)
     emit('message', data, broadcast=True)
 
