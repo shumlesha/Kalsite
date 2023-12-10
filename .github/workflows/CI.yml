@@ -19,6 +19,6 @@ jobs:
           script: |
             cd /root/Kalsite
             git fetch --all
-            git reset --hard origin/master
+            git reset --hard origin/main
             cd ..
             docker-compose up --build -d --no-deps kalsite
