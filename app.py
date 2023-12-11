@@ -7,7 +7,7 @@ import asyncio
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///nicknames.db'
 db = SQLAlchemy(app)
-socketio = SocketIO(app, async_mode='eventlet')
+socketio = SocketIO(app, async_mode='eventlet', cors_allowed_origins="*")
 
 
 class Nickname(db.Model):
