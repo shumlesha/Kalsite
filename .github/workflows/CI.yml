@@ -17,7 +17,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /root/Kalsite
+            cd /root/pmc-python-config/Kalsite
             git fetch --all
             git reset --hard origin/main
-            docker-compose up --build -d --no-deps kalsite
+            cd ..
+            docker-compose up --build -d --no-deps kollok
