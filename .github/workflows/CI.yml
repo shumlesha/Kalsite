@@ -21,4 +21,4 @@ jobs:
             git fetch --all
             git reset --hard origin/main
             cd ..
-            docker-compose up --build -d --build --force-recreate
+            docker-compose up -d --build --force-recreate
